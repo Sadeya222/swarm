@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "swarm-coding-agent"
+version = "0.1.0"
+description = "A guarded, local-first coding agent built around LangChain Deep Agents"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Swarm contributors"}]
+dependencies = [
+  "deepagents>=0.7.0",
+  "langchain>=1.0.0",
+  "langchain-openai>=1.0.0",
+  "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+quality = ["pytest>=8.0"]
+
+[project.scripts]
+swarm = "swarm.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
